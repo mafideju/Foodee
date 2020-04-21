@@ -19,7 +19,7 @@ const MealItem = ({
                     </ImageBackground>
                 </View>
                 <View style={{...styles.mealRow, ...styles.mealDetail}}>
-                    <Text>{duration} min</Text>
+                    <Text>{duration} min.</Text>
                     <Text>{complexity}</Text>
                     <Text>{affordability}</Text>
                 </View>
