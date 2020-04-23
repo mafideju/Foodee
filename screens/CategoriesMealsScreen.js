@@ -1,13 +1,10 @@
 import React from 'react';
 import {
     View,
-    Text,
     StyleSheet,
-    Button,
     FlatList
 } from 'react-native';
 import { CATEGORIES, MEALS } from '../data/mockData';
-import COLORS from '../constants/Colors';
 import MealItem from '../components/MealItem';
 
 
@@ -24,7 +21,12 @@ const CategoriesMealsScreen = ({
             complexity={item.complexity}
             affordability={item.affordability}
             image={item.imageUrl}
-            onSelectMeal={() => {navigation.navigate('Detalhes')}}
+            onSelectMeal={() => {navigation.navigate({
+                routeName: 'Detalhes',
+                params: {
+                    mealId: item.id
+                }
+            })}}
         />
     )
 
@@ -45,9 +47,9 @@ CategoriesMealsScreen.navigationOptions = ({ navigation }) => {
     return {
         headerTitle: selectedCat.title,
         headerStyle: {
-            backgroundColor: COLORS.secondaryDark,
+            backgroundColor: selectedCat.color,
         },
-        headerTintColor: COLORS.textLight,
+        headerTintColor: selectedCat.textColor,
     }
 };
 

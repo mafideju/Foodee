@@ -11,7 +11,7 @@ const CategoryGridTile = ({
         onPress={onSelect}
     >
         <View style={{ ...styles.container, ...{ backgroundColor: color } }}>
-            <Text style={styles.text}>{title}</Text>
+            <Text numberOfLines={1} style={styles.text}>{title}</Text>
         </View>
     </TouchableOpacity>
 )

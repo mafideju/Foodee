@@ -2,16 +2,16 @@ import Category from "../models/category";
 import Meal from "../models/meal";
 
 export const CATEGORIES = [
-    new Category('c1', 'Italiana', '#f5428d'),
-    new Category('c2', 'Fast-Food', '#f54242'),
-    new Category('c3', 'Hamburgeria', '#f5a442'),
-    new Category('c4', 'Alemã', '#f5d142'),
-    new Category('c5', 'Vegana', '#41d95d'),
-    new Category('c6', 'Exotica', '#f368df'),
-    new Category('c7', 'Café-da-Manhã', '#9eecff'),
-    new Category('c8', 'Asiática', '#b9ffb0'),
-    new Category('c9', 'Francesa', '#ffc7ff'),
-    new Category('c10', 'Indiana', '#47fced'),
+    new Category('c1', 'Italiana', '#f5428d', '#e1e5ed'),
+    new Category('c2', 'Fast-Food', '#f54242', '#e1e5ed'),
+    new Category('c3', 'Hamburgeria', '#f5a442', '#e1e5ed'),
+    new Category('c4', 'Alemã', '#f5d142', '#2b2c2e'),
+    new Category('c5', 'Vegana', '#41d95d', '#e1e5ed'),
+    new Category('c6', 'Exotica', '#f368df', '#e1e5ed'),
+    new Category('c7', 'Café-da-Manhã', '#9eecff', '#2b2c2e'),
+    new Category('c8', 'Indiana', '#b9ffb0', '#2b2c2e'),
+    new Category('c9', 'Francesa', '#ffc7ff', '#2b2c2e'),
+    new Category('c10', 'Asiática', '#47fced', '#2b2c2e'),
 ]
 
 export const MEALS = [
