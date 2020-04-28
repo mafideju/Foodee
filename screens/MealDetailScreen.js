@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
+import { HeaderButtons } from 'react-navigation-header-buttons';
+import HeaderButton from '../components/HeaderButton';
 import { MEALS } from '../data/mockData';
 import COLORS from '../constants/Colors';
 
@@ -28,6 +30,11 @@ MealDetailScreen.navigationOptions = ({ navigation }) => {
 
     return {
         headerTitle: selectedMeal.title,
+        headerRight: (
+            <HeaderButtons HeaderButtonComponent={HeaderButton}>
+                <Item title="Favoritos" iconName="ios-star" onPress={console.log('Favorito')} />
+            </HeaderButtons>
+        ),
         headerStyle: {
             backgroundColor: COLORS.primaryDark,
         },
