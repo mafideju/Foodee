@@ -24,3 +24,6 @@ export default function App() {
     <MealsNavigator />
   );
 }
+
+
+// git add . && git status && git commit -m "feat(): feat desc here" && git push && git status && git log

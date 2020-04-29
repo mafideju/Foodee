@@ -32,7 +32,13 @@ MealDetailScreen.navigationOptions = ({ navigation }) => {
         headerTitle: selectedMeal.title,
         headerRight: () => (
             <HeaderButtons HeaderButtonComponent={HeaderButton}>
-                <Item title="Favoritos" iconName="ios-star" onPress={() => console.log('Favorito')} />
+                <Item
+                    title="Favoritos"
+                    iconName="ios-star"
+                    onPress={() => {
+                        console.log('Favorito');
+                    }}
+                />
             </HeaderButtons>
         ),
         headerStyle: {
@@ -51,6 +57,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     }
-})
+});
 
 export default MealDetailScreen;
