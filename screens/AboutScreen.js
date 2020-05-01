@@ -31,6 +31,10 @@ const AboutScreen = () => {
 AboutScreen.navigationOptions = ({ navigation }) => {
     return {
         headerTitle: 'Contato',
+        headerTitleStyle: {
+            fontFamily: 'open-sans',
+            fontSize: 15
+        },
         headerStyle: {
             backgroundColor: '#000',
         },

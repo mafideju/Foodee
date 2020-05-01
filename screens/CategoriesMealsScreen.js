@@ -20,6 +20,10 @@ CategoriesMealsScreen.navigationOptions = ({ navigation }) => {
     const selectedCat = CATEGORIES.find(cat => cat.id === catId);
     return {
         headerTitle: selectedCat.title,
+        headerTitleStyle: {
+            fontFamily: 'open-sans',
+            fontSize: 15
+        },
         headerStyle: {
             backgroundColor: selectedCat.color,
         },

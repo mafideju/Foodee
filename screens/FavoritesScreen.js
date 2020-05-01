@@ -17,7 +17,11 @@ const FavoritesScreen = ({ navigation }) => {
 
 FavoritesScreen.navigationOptions = ({ navigation }) => {
     return {
-        headerTitle: 'Faça de Novo!', 
+        headerTitle: 'Faça de Novo!',
+        headerTitleStyle: {
+            fontFamily: 'open-sans',
+            fontSize: 15
+        },
         headerStyle: {
             backgroundColor: COLORS.primaryDark,
         },

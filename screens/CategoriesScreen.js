@@ -34,7 +34,11 @@ const CategoriesScreen = ({
 
 CategoriesScreen.navigationOptions = ({ navigation }) => {
     return {
-        headerTitle: 'Cozinhas', 
+        headerTitle: 'Cozinhas',
+        headerTitleStyle: {
+            fontFamily: 'open-sans',
+            fontSize: 15
+        }, 
         headerStyle: {
             backgroundColor: COLORS.primaryDark,
         },

@@ -1,26 +1,38 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, StyleSheet, Button, Image } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import HeaderButton from '../components/HeaderButton';
 import { MEALS } from '../data/mockData';
 import COLORS from '../constants/Colors';
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 const MealDetailScreen = ({
-    navigation
+    navigation,
 }) => {
     const mealId = navigation.getParam('mealId');
     const selectedMeals = MEALS.find(meal => meal.id === mealId);
 
     return (
-        <View style={styles.screen}>
-            <Text>
-                Veja os Detalhes da Refeição Escolhida
-            </Text>
-            <Text>{selectedMeals.title}</Text>
-            <Button title="Voltar" onPress={() => {navigation.goBack()}} ></Button>
-            <Button title="Inicio" onPress={() => {navigation.popToTop()}} ></Button>
-        </View>
+        <ScrollView>
+            <Image source={{uri: selectedMeals.imageUrl}} style={styles.mealImage} />
+            {/* <Text style={styles.title}>{selectedMeals.title}</Text> */}
+            <View style={{...styles.mealRow, ...styles.mealDetail}}>
+                <Text>{selectedMeals.duration} min.</Text>
+                <Text>{selectedMeals.complexity}</Text>
+                <Text>{selectedMeals.affordability}</Text>
+            </View>
+
+            <Text style={styles.section}>Ingredientes</Text>
+            {selectedMeals.ingredients.map(ing => (
+                <Text key={Math.random()}>{ing}</Text>
+            ))}
+            
+            <Text style={styles.section}>Preparo</Text>
+            {selectedMeals.steps.map(step => (
+                <Text key={Math.random()}>{step}</Text>
+            ))}
+        </ScrollView>
     );
 };
 
@@ -30,6 +42,10 @@ MealDetailScreen.navigationOptions = ({ navigation }) => {
 
     return {
         headerTitle: selectedMeal.title,
+        headerTitleStyle: {
+            fontFamily: 'open-sans',
+            fontSize: 15
+        },
         headerRight: () => (
             <HeaderButtons HeaderButtonComponent={HeaderButton}>
                 <Item
@@ -45,17 +61,30 @@ MealDetailScreen.navigationOptions = ({ navigation }) => {
             backgroundColor: COLORS.primaryDark,
         },
         headerTintColor: COLORS.textLight,
-        headerTitleStyle: {
-            fontSize: 17,
-        },
     }
 };
 
 const styles = StyleSheet.create({
-    screen: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
+    mealRow: {
+        flexDirection: 'row'
+    },
+    mealHeader: {
+        height: '90%',
+    },
+    mealDetail: {
+        paddingHorizontal: 10,
+        justifyContent: 'space-between'
+    },
+    mealImage: {
+        width: '100%',
+        height: 200,
+        justifyContent: 'center'
+    },
+    section: {
+        paddingVertical: 10,
+        fontFamily: 'open-sans',
+        fontSize: 22,
+        textAlign: 'center'
     }
 });
 
