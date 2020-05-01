@@ -1,5 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import HeaderButton from '../components/HeaderButton';
+import COLORS from '../constants/Colors';
 
 const FiltersScreen = () => {
     return (
@@ -9,6 +12,28 @@ const FiltersScreen = () => {
             </Text>
         </View>
     );
+};
+
+
+FiltersScreen.navigationOptions = ({ navigation }) => {
+    return {
+        headerTitle: 'Procure sua Receita',
+        headerStyle: {
+            backgroundColor: COLORS.primaryDark,
+        },
+        headerTintColor: COLORS.textLight,
+        headerLeft: () => (
+            <HeaderButtons HeaderButtonComponent={HeaderButton}>
+                <Item 
+                    title='Menu'
+                    iconName='ios-menu'
+                    onPress={() => {
+                        navigation.toggleDrawer();
+                    }}>
+                </Item>
+            </HeaderButtons>
+        )
+    }
 };
 
 const styles = StyleSheet.create({
