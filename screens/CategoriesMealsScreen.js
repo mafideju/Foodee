@@ -1,5 +1,6 @@
 import React from 'react';
-import { CATEGORIES, MEALS } from '../data/mockData';
+import { useSelector } from 'react-redux';
+import { CATEGORIES } from '../data/mockData';
 import MealList from '../components/MealList';
 
 
@@ -8,7 +9,8 @@ const CategoriesMealsScreen = ({
 }) => {
     const catId = navigation.getParam('categoryId');
     // const selectedCat = CATEGORIES.find(cat => cat.id === catId);
-    const selectedMeals = MEALS.filter(meal => meal.categoryIds.indexOf(catId) >= 0);
+    const availableMeals = useSelector(state => state.meals.filteredMeals);
+    const selectedMeals = availableMeals.filter(meal => meal.categoryIds.indexOf(catId) >= 0);
 
     return (
         <MealList listData={selectedMeals} navigation={navigation} />

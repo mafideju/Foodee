@@ -1,17 +1,27 @@
-import React from 'react';
-import { View, Text, StyleSheet, Button, Image } from 'react-native';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import {
+    View,
+    Text,
+    StyleSheet,
+    Image,
+    ScrollView
+} from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import HeaderButton from '../components/HeaderButton';
-import { MEALS } from '../data/mockData';
 import COLORS from '../constants/Colors';
-import { ScrollView } from 'react-native-gesture-handler';
 
 
 const MealDetailScreen = ({
     navigation,
 }) => {
     const mealId = navigation.getParam('mealId');
-    const selectedMeals = MEALS.find(meal => meal.id === mealId);
+    const meals = useSelector(state => state.meals.meals);
+    const selectedMeals = meals.find(meal => meal.id === mealId);
+    
+    // useEffect(() => {
+    //     navigation.setParams({ mealTitle: selectedMeals.title });
+    // }, [selectedMeals])
 
     return (
         <ScrollView>
@@ -38,10 +48,11 @@ const MealDetailScreen = ({
 
 MealDetailScreen.navigationOptions = ({ navigation }) => {
     const mealId = navigation.getParam('mealId');
-    const selectedMeal = MEALS.find(meal => meal.id === mealId);
+    const mealTitle = navigation.getParam('mealTitle');
+    // const selectedMeal = meals.find(meal => meal.id === mealId);
 
     return {
-        headerTitle: selectedMeal.title,
+        headerTitle: mealTitle,
         headerTitleStyle: {
             fontFamily: 'open-sans',
             fontSize: 15
