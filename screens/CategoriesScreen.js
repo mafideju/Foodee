@@ -18,7 +18,8 @@ const CategoriesScreen = ({
             onSelect={() => navigation.navigate({
                 routeName: 'Refeições',
                 params: {
-                    categoryId: item.id
+                    categoryId: item.id,
+                    color: item.color
                 }
             })}
         />

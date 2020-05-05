@@ -11,8 +11,16 @@ const FavoritesScreen = ({ navigation }) => {
 
     // const favMeals = availableMeals.filter(meal => meal.id === 'm1' || meal.id === 'm2');
     return (
-        <View style={ styles.screen }>
-            <MealList listData={favMeals} navigation={navigation} />
+        <View style={styles.screen}>
+            {favMeals.length > 0 
+                ? <MealList listData={favMeals} navigation={navigation} />
+                : (
+                    <View style={styles.screen2}>
+                        <Text style={styles.message}>Adicione um Favorito!!!</Text>
+                        <Text style={styles.message}>E Nunca Mais Esqueça Aquela Receita!</Text>
+                    </View>
+                )
+            }
         </View>
     );
 };
@@ -47,7 +55,11 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
-    }
+    },
+    screen2: {
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
 })
 
 export default FavoritesScreen;
