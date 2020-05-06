@@ -12,7 +12,7 @@ const FavoritesScreen = ({ navigation }) => {
     // const favMeals = availableMeals.filter(meal => meal.id === 'm1' || meal.id === 'm2');
     return (
         <View style={styles.screen}>
-            {favMeals.length > 0 
+            {!favMeals || favMeals.length > 0 
                 ? <MealList listData={favMeals} navigation={navigation} />
                 : (
                     <View style={styles.screen2}>
